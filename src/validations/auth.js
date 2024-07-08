@@ -2,20 +2,24 @@ import Joi from "joi";
 
 const registerValidator = Joi.object({
     username: Joi.string().min(3).required().messages({
-        "any.required": "Username thieu roi",
-        "string.min": "Username phai nhieu hon 3 ky tu",
+        "any.required": "Tên không được để trống",
+        "string.min": "Tên phải nhiều hơn 3 kí tự",
     }),
     email: Joi.string().email().messages({
-        "string.email": "Ko dung dinh dang email",
+        "string.email": "Không đúng định dạng email",
     }),
-    password: Joi.string().required(),
+    password: Joi.string().min(5).required().messages({
+        "string.min": "Mật khẩu phải nhiều hơn 5 kí tự",
+    }),
     role: Joi.string(),
 }).options({
     abortEarly: false,
 });
 
 const loginValidator = Joi.object({
-    email: Joi.string().email().required(),
+    email: Joi.string().email().required().messages({
+        "string.email": "Không đúng định dạng email",
+    }),
     password: Joi.string().required(),
 }).options({
     abortEarly: false,
