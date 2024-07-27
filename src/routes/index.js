@@ -4,6 +4,7 @@ import categoriesRouter from "./categories.js";
 import productsRouter from "./products.js";
 import commentRouter from "./comment.js";
 import favoriteRouter from "./favorite.js";
+import CheckRouter from "./checkout.js";
 
 const router = Router();
 
@@ -16,5 +17,6 @@ router.use("/categories", categoriesRouter);
 router.use("/products", productsRouter);
 router.use("/comment", commentRouter);
 router.use("/favorite", favoriteRouter);
+router.use("/checkout", CheckRouter);
 
 export default router;
