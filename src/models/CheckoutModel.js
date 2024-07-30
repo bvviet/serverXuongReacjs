@@ -3,6 +3,11 @@ const Schema = mongoose.Schema;
 
 const CheckOutSchema = new Schema(
     {
+        userId: {
+            type: Schema.Types.ObjectId,
+            ref: "users",
+            required: true,
+        },
         name: {
             type: String,
             required: true,
@@ -28,8 +33,21 @@ const CheckOutSchema = new Schema(
             type: String,
             required: true,
         },
+        cartItems: [
+            {
+                product: {
+                    type: Schema.Types.ObjectId,
+                    ref: 'Product',
+                    required: true,
+                },
+                quantity: {
+                    type: Number,
+                    required: true,
+                },
+            },
+        ],
     },
-
+    { timestamps: true }
 );
 
 const CheckOut = mongoose.model("checkout", CheckOutSchema);
