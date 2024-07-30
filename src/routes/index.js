@@ -5,6 +5,7 @@ import productsRouter from "./products.js";
 import commentRouter from "./comment.js";
 import favoriteRouter from "./favorite.js";
 import CheckRouter from "./checkout.js";
+import CartRouter from "./cart.js";
 
 const router = Router();
 
@@ -18,5 +19,6 @@ router.use("/products", productsRouter);
 router.use("/comment", commentRouter);
 router.use("/favorite", favoriteRouter);
 router.use("/checkout", CheckRouter);
+router.use("/cart", CartRouter);
 
 export default router;
